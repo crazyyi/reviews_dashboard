@@ -12,8 +12,10 @@ This project is created with
 npm run turbo
 
 ## Create Database tables:
+```bash
 npm run db:generate
 npm run db:migrate
+```
 
 ## Stripe payment webhook listener
 Config your Stripe using:
