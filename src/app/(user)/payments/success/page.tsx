@@ -1,7 +1,7 @@
 import { db } from "@/db"
 import { subscriptions } from "@/db/schema"
 import { auth } from "@/lib/auth"
-import { paymentPlans } from "@/lib/payments/payments"
+import { getEnumKeyByValue } from "@/utils/utils"
 import { eq } from "drizzle-orm"
 import { headers } from "next/headers"
 import Link from "next/link"
@@ -21,7 +21,7 @@ const Page = async () => {
 
   console.log("subscription: ", subscription);
 
-  const planKey = Object.keys(paymentPlans).find(key => paymentPlans[key as keyof typeof paymentPlans] === subscription?.stripePriceId)
+  const planKey = getEnumKeyByValue({ priceId: subscription?.stripePriceId })
 
   return (
     <div className="p-4 border rounded-md">

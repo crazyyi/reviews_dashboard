@@ -39,6 +39,7 @@ export const {
   signOut,
   useSession,
   organization,
+  passkey,
   useListOrganizations,
   useActiveOrganization,
 } = client;

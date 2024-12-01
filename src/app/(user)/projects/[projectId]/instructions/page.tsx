@@ -2,7 +2,6 @@
 
 import CustomLink from "@/components/CustomLink";
 import { Check, ChevronLeft, Copy } from "lucide-react";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { SubscriptionPlanType } from "@/types"
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
+import type { SubscriptionPlanType } from "@/types"
 
 interface DashboardState {
   plans: SubscriptionPlanType[]

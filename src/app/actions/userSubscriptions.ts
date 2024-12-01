@@ -35,3 +35,14 @@ export async function getSubscription({
   })
   return subscription?.subscribed
 }
+
+export async function getPlanDetails({
+  userId
+}: {
+  userId: string
+}): Promise<[string | null | undefined, Date | null | undefined]> {
+  const subscription = await db.query.subscriptions.findFirst({
+    where: eq(subscriptions.userId, userId)
+  })
+  return [subscription?.stripePriceId, subscription?.stripeCurrentPeriodEnd]
+}

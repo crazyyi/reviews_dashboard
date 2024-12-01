@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createHash } from "crypto"
 import { TableName } from "@/types";
+import { paymentPlans } from "@/lib/payments/payments";
 
 /**
  * Redirects to a specified path with an encoded message as a query parameter.
@@ -40,4 +41,8 @@ export function generateId(userId: string, table: string): string {
   }
 
   return `${prefix}_${shortHash}`;
+}
+
+export function getEnumKeyByValue({ priceId }: { priceId: string | null | undefined }) {
+  return Object.keys(paymentPlans).find(key => paymentPlans[key as keyof typeof paymentPlans] === priceId)
 }

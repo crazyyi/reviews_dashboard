@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import signInReducer from './signInSlice'
 import planReducer from './planSlice'
+import profileReducer from './profileSlice'
 
 export const store = configureStore({
   reducer: {
     signIn: signInReducer,
     dashboard: planReducer,
+    profile: profileReducer
   },
 })
 

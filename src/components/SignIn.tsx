@@ -1,5 +1,6 @@
 "use client";
 
+import { revalidateComponent } from "@/app/actions/revalidateComponent";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -226,7 +227,8 @@ export default function SignIn() {
             onClick={async () => {
               await signIn.passkey({
                 fetchOptions: {
-                  onResponse() {
+                  async onResponse() {
+                    await revalidateComponent()
                     router.push("/dashboard");
                   },
                 },

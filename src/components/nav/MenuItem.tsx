@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 interface MenuItemProps extends PropsWithChildren {
   className: string,

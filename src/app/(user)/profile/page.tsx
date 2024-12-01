@@ -1,23 +1,12 @@
-import ResetPassword from "@/app/(auth)/reset-password/page"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import CurrentPlan from "@/components/CurrentPlan"
+import ProfileMenus from "@/components/ProfileMenus"
 
 const Profile = () => {
+
   return (
-    <div className="flex items-center justify-center border w-[10em] p-3 mx-auto hover:bg-stone-100">
-      <Dialog>
-        <DialogTrigger>
-          Reset Password
-        </DialogTrigger>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>Reset your password</DialogTitle>
-          </DialogHeader>
-          <div>
-            <ResetPassword />
-          </div>
-        </DialogContent>
-      </Dialog>
+    <div className="grid grid-cols-5 gap-3">
+      <ProfileMenus className="col-span-1" />
+      <CurrentPlan className="col-span-auto flex justify-center" />
     </div>
   )
 }

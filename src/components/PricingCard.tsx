@@ -1,6 +1,6 @@
 "use client"
 
-import { PricingPlan } from "@/app/pricing-section"
+import type { PricingPlan } from "@/app/pricing-section"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { Check } from "lucide-react"
 import { Button } from "./ui/button"

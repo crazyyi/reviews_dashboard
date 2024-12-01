@@ -13,19 +13,22 @@ import {
 } from "@/components/ui/dialog"
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "@/redux/store";
-import { setIsOpen, toggleOpen } from "@/redux/signInSlice";
+import { setIsOpen } from "@/redux/signInSlice";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   const isOpen = useSelector((state: RootState) => state.signIn.isOpen)
   const dispatch = useDispatch()
+  const router = useRouter()
   const handleDialogClose = () => {
-    dispatch(toggleOpen())
+    dispatch(setIsOpen(false))
+    router.push("/")
   }
 
   useEffect(() => {
     client.oneTap();
     dispatch(setIsOpen(true))
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="w-full">

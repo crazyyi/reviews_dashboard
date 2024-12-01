@@ -6,8 +6,6 @@ import { useRouter } from "next/navigation";
 import { Menu } from "lucide-react";
 import SignInButton from "../SignInButton";
 import type { Session } from "@/lib/auth-types";
-import { useDispatch } from "react-redux";
-import { toggleOpen } from "@/redux/signInSlice";
 
 const menuItems = [
   {
@@ -36,32 +34,29 @@ const UserMenu: React.FC<UserMenuProps> = ({
   data
 }) => {
   const router = useRouter()
-  const [isOpen, setIsOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
-  const dispatch = useDispatch()
   const currentUser = data?.user
 
   const toggleMenuOpen = useCallback(() => {
-    setIsOpen(value => !value)
+    setIsMenuOpen(value => !value)
   }, [])
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node) &&
       buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
+      setIsMenuOpen(false)
     }
   }, []);
 
   const handleMenuClick = (url: string) => () => {
-    setIsOpen(false)
+    setIsMenuOpen(false)
     router.push(url)
   }
 
   const handleSignIn = () => {
-    setIsOpen(false)
-    dispatch(toggleOpen())
-    router.push("/sign-in")
+    handleMenuClick("/sign-in")()
   }
 
   useEffect(() => {
@@ -70,7 +65,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   return (
     <div className="relative">
@@ -81,7 +76,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         </div>
       </div>
 
-      {isOpen && (
+      {isMenuOpen && (
         <div
           ref={menuRef}
           className="absolute rounded-md shadow-md w-[40vw] md:w-[12em] bg-white overflow-hidden right-0 top-10 text-sm">

@@ -1,4 +1,5 @@
 import { betterAuth } from "better-auth";
+import { passkey } from "better-auth/plugins"
 import { Pool } from "pg";
 import { sendEmail } from "./email/sendEmail";
 import './envConfig.ts'
@@ -37,4 +38,7 @@ export const auth = betterAuth({
       trustedProviders: ["google", "github"]
     }
   },
+  plugins: [
+    passkey()
+  ]
 })

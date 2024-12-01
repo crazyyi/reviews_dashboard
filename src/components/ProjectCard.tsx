@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "./ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
-import { Project } from "@/types"
+import type { Project } from "@/types"
 import { Lock } from "lucide-react"
 import SubcribeBtn from "./SubcribeBtn"
 import { paymentPlans } from "@/lib/payments/payments"
@@ -23,7 +23,7 @@ const ProjectCard = ({ project }: { project?: Project }) => {
         {project ?
           <Link href={`/projects/${project.id}`}>
             <Button>View Project</Button>
-          </Link> : <SubcribeBtn price={paymentPlans.MonthlyPlanId} />}
+          </Link> : <SubcribeBtn price={paymentPlans.MonthlyPlan} />}
       </CardFooter>
     </Card>
   )
