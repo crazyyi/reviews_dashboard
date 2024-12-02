@@ -35,8 +35,8 @@ without doing so the database would not be updated to reflect the changes of sub
 This project uses [Beter Auth](https://github.com/better-auth/better-auth) for authentication. You can sign up and login using email/password, Github/Google social logins.
 
 ## There is another API server to serve API for adding reviews 
-review-api-server
+[review-api-server](https://github.com/crazyyi/review-api-server) is built on Nest.js and provides APIs independently of the reivews_dashboard project.
 
 ## A custom web component/widget is developed for adding reviews on any website.
 
-Check out review_widget
+Check out [review_widget](https://github.com/crazyyi/review_widget)
