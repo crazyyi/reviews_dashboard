@@ -4,7 +4,9 @@ This project is created with
 - [Beter Auth](https://github.com/better-auth/better-auth)
 - [Drizzle](https://github.com/drizzle-team/drizzle-orm)
 - [ShadCN UI](https://github.com/shadcn-ui/ui)
-- AWS SES (for sending emails)
+- Nodemailer (for sending emails). 
+  - Option 1: Gmail
+  - Option 2: AWS SES 
 - Stripe payment
 - PostgreSQL
 
